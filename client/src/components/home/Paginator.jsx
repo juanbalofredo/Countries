@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import { loadingState, filterAndOrder, loadCountries, countryDetail } from '../../redux/actions';
 
 import Country from './Country';
-import style2 from './css/countries.module.css'
-import Footer from './footer';
+import Footer from './Footer';
 
 export default function Paginator() {
   const data = useSelector(state => state.countries);
@@ -27,7 +26,6 @@ export default function Paginator() {
   useEffect(() => {
     document.title = "Countries (" + currentPage + ")";
   }, [currentPage]);
-
   useEffect(()=>{
       if(filtradoUOrdenado){
         setCurrentPage(1)
@@ -50,7 +48,7 @@ export default function Paginator() {
           })) : (
             <div className="container_vacio">
               <h1 className="ups" style={{pointerEvents: 'none'}}>Ups...</h1>
-              <button className={style2.botonRecargarPaises} style={{cursor: 'pointer'}} onClick={(e) => {
+              <button className="gga" style={{cursor: 'pointer'}} onClick={(e) => {
                   dispatch(loadCountries())
                   dispatch(loadingState(true))
                   document.getElementById('filtPorContinente').value="sel"
@@ -68,6 +66,10 @@ export default function Paginator() {
         <div className="paginator_container">{
           currentPage === 1 ?<button disabled id="antes" onClick={e => setCurrentPage(page => page - 1)}>Anterior</button>
           :<button id="antes" onClick={e => setCurrentPage(page => page - 1)}>Anterior</button>}{
+
+            data.length < 10 ? <p> <font size="6" id="pages">{currentPage}</font></p> 
+           :data.length < 10 && data.length  < 19 ? <p>{currentPage -1}  <font size="6" id="pages">{currentPage}</font></p> 
+           :
             currentPage === Math.ceil(data.length / 10) ? <p> {currentPage -2} {currentPage -1}  <font size="6" id="pages">{currentPage}</font></p> 
            :currentPage === Math.ceil(data.length / 10 -1 ) ? <p> {currentPage -1} <font size="6" id="pages">{currentPage}</font>  {currentPage +1}</p>
            :currentPage <= 1 ?<p id='pages'><font size="6" id="pages">{currentPage}</font> {currentPage + 1} {currentPage + 2}</p>

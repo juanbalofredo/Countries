@@ -163,10 +163,10 @@ export default function Activity() {
             {error.name.length ? <span id='error_name'>{error.name}</span> : null }
             <div id='difff'>
             <label htmlFor="dificultad">Dificultad de la actividad:</label>
-            <input type="range" min='1' max="5" name="dificultad" id="dificultad" autocomplete="off" placeholder='Ingresa una dificultad' value={input.dificultad} onChange={handleChange} />
+            <input type="range" min='1' max="5" name="dificultad" id="dificultad" autoComplete="off" placeholder='Ingresa una dificultad' value={input.dificultad} onChange={handleChange} />
             <span id='dif_tet'>{input.dificultad}</span>
              </div>
-            <input type="number" min='=' max='2001' name="duracion" id="duracion" autocomplete="off" placeholder='Ingresa una duración (0-2000) hs' value={input.duracion} onChange={handleChange} />
+            <input type="number" min='=' max='2001' name="duracion" id="duracion" autoComplete="off" placeholder='Ingresa una duración (0-2000) hs' value={input.duracion} onChange={handleChange} />
             {error.duracion.length ? <span id='error_dura'>{error.duracion}</span> : null }
             <div id='labasl'>
                 <div id='tempo'>
@@ -183,7 +183,7 @@ export default function Activity() {
             <br />            </div>
             <div id='pais_act'>
             <label htmlFor="bpais">¿En que países está la actividad?</label>
-            <input autocomplete="off" type="text" id="bpais" name="bpais" placeholder='Buscar pais' onChange={buscarPais}/> 
+            <input autoComplete="off" type="text" id="bpais" name="bpais" placeholder='Buscar pais' onChange={buscarPais}/> 
             </div> </div>
             {bPaises.length > 0 ?
             <>
