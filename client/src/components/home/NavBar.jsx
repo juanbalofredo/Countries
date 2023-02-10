@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 export default function NavBar() {
   return (
     <div className="container_nav_2"> 
-      <Link className="boton_inicio" to="/">Ir a Inicio</Link>
-      <h1 >Countries PI</h1>
+      <Link className="boton_inicio" to="/">Inicio</Link>
+      <h1 >Proyecto Paises</h1>
       <Link to="/activity" className="boton_agregar">Agregar act</Link>
     </div>
   )

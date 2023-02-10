@@ -1,9 +1,9 @@
 import { Route } from 'react-router-dom'
-import LandingPage from './components/landing/LandingPage';
+import LandingPage from './components/home/LandingPage';
 import Home from './components/home/Home';
 import NavBar from './components/home/NavBar';
-import CountryDetail from './components/home/detail/CountryDetail';
-import Activity from './components/home/activity/Activity';
+import CountryDetail from './components/home/CountryDetail';
+import Activity from './components/home/Activity';
 
 function App() {
   return (

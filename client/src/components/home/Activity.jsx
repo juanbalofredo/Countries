@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux'
 
-import { addActividad, filterAndOrder, loadCountries, loadingState } from '../../../redux/actions'
+import { addActividad, filterAndOrder, loadCountries, loadingState } from '../../redux/actions/index'
 
 
 export default function Activity() {
@@ -155,7 +155,7 @@ export default function Activity() {
     return (
       <>
       <div id='activity_container'>
-        <Link className='act_volver' to='/home'>volver</Link>
+        <Link className='act_volver' to='/home'>Volver</Link>
         <form className="act_container" method="POST" onSubmit={handleSubmit}>
             <h1>Agregar actividad Turística</h1>
             <div id='achsae'>

@@ -17,10 +17,10 @@ export default function Paginator() {
   const dispatch = useDispatch();
 
 
-  const getPaginatedData = () => {
-    const startIndex = currentPage === 1 ? 0 : currentPage * 10 - 10;
-    const endIndex = currentPage === 1 ? 9 : startIndex + 10;   
-    return data.slice(startIndex, endIndex);
+  const dividirPags = () => {
+    const sIndex = currentPage === 1 ? 0 : currentPage * 10 - 10;
+    const eIndex = currentPage === 1 ? 9 : sIndex + 10;   
+    return data.slice(sIndex, eIndex);
 
   };  
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Paginator() {
       {
         
         data.length ?
-          getPaginatedData()?.map((c => {
+          dividirPags()?.map((c => {
             return(
             <Link key={c.ID} to={`/country/${c.ID}`} onClick={e => dispatch(countryDetail(c.ID))}>
               <Country name={c.name} urlImg={c.urlImg} continent={c.continent} />

@@ -8,7 +8,7 @@ export default function LandingPage() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        document.title = "Countries PI"
+        document.title = "Proyecto Integral"
         dispatch(loadCountries())
         dispatch(loadingState(true))
     }, [dispatch])

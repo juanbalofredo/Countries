@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { clearDetail } from '../../../redux/actions'
+import { clearDetail } from '../../redux/actions/index'
 
 export default function CountryDetail() {
   const pais = useSelector(state => state.countryDetail)
@@ -20,7 +20,7 @@ export default function CountryDetail() {
     return (
       <>
       <div className='detail_super'>
-        <Link className="detail_volver" to='/home'>volver</Link>
+        <Link className="detail_volver" to='/home'>Volver</Link>
         <div className="detail_container">
             <img src={pais.urlImg} alt="argentina" />
             <h1>{pais.name}</h1>
