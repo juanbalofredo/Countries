@@ -21,7 +21,7 @@ export default function SearchBar() {
   return (
     <form className="buscador" onSubmit={(e) => handleSubmit(e)}>
         <button type='submit'>Buscar</button>
-        <input maxLength="10" type="text" name='inputPais' placeholder='Ingrese un pais' value={inputPais} onChange={e => handleChange(e)}/>
+        <input maxLength="10" type="text" name='inputPais' autoComplete='off' placeholder='Ingrese un pais' value={inputPais} onChange={e => handleChange(e)}/>
     </form>
   )
 }

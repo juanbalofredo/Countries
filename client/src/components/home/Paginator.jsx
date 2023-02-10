@@ -12,29 +12,20 @@ import Footer from './footer';
 
 export default function Paginator() {
   const data = useSelector(state => state.countries);
-  const loading = useSelector(state => state.loading);
   const filtradoUOrdenado = useSelector(state => state.applyFilterAndOrder)
   
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
 
-  function changePage(event) {
-    const pageNumber = Number(event.target.value);
-    setCurrentPage(pageNumber);
-  }
 
   const getPaginatedData = () => {
-    const startIndex = currentPage === 1 ? 0 : currentPage * 9 - 9;
-    const endIndex = currentPage === 1 ? 9 : startIndex + 9;
+    const startIndex = currentPage === 1 ? 0 : currentPage * 10 - 10;
+    const endIndex = currentPage === 1 ? 9 : startIndex + 10;   
     return data.slice(startIndex, endIndex);
-  };
-  const getPaginationGroup = () => {
-    return new Array(Math.ceil(data.length / 9)).fill().map((_, idx) => idx + 1)
-  };
 
-  
+  };  
   useEffect(() => {
-    document.title = "Countries página " + currentPage;
+    document.title = "Countries (" + currentPage + ")";
   }, [currentPage]);
 
   useEffect(()=>{
@@ -43,7 +34,7 @@ export default function Paginator() {
         dispatch(loadingState(false))
         dispatch(filterAndOrder(false))
       }
-  }, [filtradoUOrdenado])
+  }, [filtradoUOrdenado,dispatch])
 
   return (
     <>
@@ -77,13 +68,12 @@ export default function Paginator() {
         <div className="paginator_container">{
           currentPage === 1 ?<button disabled id="antes" onClick={e => setCurrentPage(page => page - 1)}>Anterior</button>
           :<button id="antes" onClick={e => setCurrentPage(page => page - 1)}>Anterior</button>}{
-            currentPage === 27 ?<p>{currentPage -2} {currentPage -1} <font size="6" id="pages">{currentPage}</font>  {currentPage +1}</p>
-           :currentPage === 28 ?<p>{currentPage -2} {currentPage -1} <font size="6" id="pages">{currentPage}</font></p>
-           :
-            currentPage <= 1 ?<p id='pages'><font size="6" id="pages">{currentPage}</font> {currentPage + 1} {currentPage + 2}</p>
-           :currentPage == 2 ?<p>{currentPage -1} <font size="6" id="pages">{currentPage}</font> {currentPage +1} {currentPage +2}</p>
-           :<p>{currentPage -2} {currentPage -1} <font size="6" id="pages">{currentPage}</font>  {currentPage +1} {currentPage +2}</p>}
-           {currentPage === 28 ? <button id="desp" disabled onClick={e => setCurrentPage(page => page + 1)}>Siguiente</button>
+            currentPage === Math.ceil(data.length / 10) ? <p> {currentPage -2} {currentPage -1}  <font size="6" id="pages">{currentPage}</font></p> 
+           :currentPage === Math.ceil(data.length / 10 -1 ) ? <p> {currentPage -1} <font size="6" id="pages">{currentPage}</font>  {currentPage +1}</p>
+           :currentPage <= 1 ?<p id='pages'><font size="6" id="pages">{currentPage}</font> {currentPage + 1} {currentPage + 2}</p>
+           :currentPage === 2 ?<p>{currentPage -1} <font size="6" id="pages">{currentPage}</font> {currentPage +1} </p>
+           :<p>{currentPage -1} <font size="6" id="pages">{currentPage}</font>  {currentPage +1}</p>}
+           {currentPage === Math.ceil(data.length / 10) ? <button id="desp" disabled onClick={e => setCurrentPage(page => page + 1)}>Siguiente</button>
            :<button id="desp" onClick={e => setCurrentPage(page => page + 1)}>Siguiente</button>}
         </div>
       <Footer/>

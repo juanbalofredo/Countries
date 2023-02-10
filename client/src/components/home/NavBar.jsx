@@ -8,7 +8,7 @@ export default function NavBar() {
     <div className="container_nav_2"> 
       <Link className="boton_inicio" to="/">Ir a Inicio</Link>
       <h1 >Countries PI</h1>
-      <Link to="/activity" className="boton_agregar">Agregar actividad</Link>
+      <Link to="/activity" className="boton_agregar">Agregar act</Link>
     </div>
   )
 }

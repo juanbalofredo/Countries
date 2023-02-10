@@ -11,7 +11,7 @@ export default function LandingPage() {
         document.title = "Countries PI"
         dispatch(loadCountries())
         dispatch(loadingState(true))
-    }, [])
+    }, [dispatch])
 
   return (
     <div className='landind_container'>
