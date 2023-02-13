@@ -421,6 +421,11 @@
     width: 150px;
     text-align: center;
     margin-left: 30px;
+    border-radius: 10px;
+  }
+  body .container_nav .filtrosa select:focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 10px white;
   }
   body .container_nav .filtrosa select:hover {
     cursor: pointer;
@@ -1285,6 +1290,10 @@
     width: 150px;
     text-align: center;
     border-radius: 3px;
+  }
+  body .container_nav .filtrosa select:focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 10px white;
   }
   body .container_nav .filtrosa select:hover {
     cursor: pointer;
@@ -2197,7 +2206,11 @@
     height: 25px;
     width: 150px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 7px;
+  }
+  body .container_nav .filtrosa select:focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 10px white;
   }
   body .container_nav .filtrosa select:hover {
     cursor: pointer;
@@ -3109,6 +3122,10 @@
     width: 150px;
     text-align: center;
     border-radius: 3px;
+  }
+  body .container_nav .filtrosa select:focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 10px white;
   }
   body .container_nav .filtrosa select:hover {
     cursor: pointer;

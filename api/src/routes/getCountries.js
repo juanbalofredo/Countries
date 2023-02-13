@@ -40,16 +40,15 @@ route.get('/', async (req, res) => {
 
 route.get('/:idPais', async (req, res) => {
     const { idPais } = req.params
-
-    const existe = await Country.findAll({
+    const exist = await Country.findAll({
         where:{
             ID: idPais
         },
         include: Activity
     })
 
-    if(existe){
-        res.json(existe)
+    if(exist){
+        res.json(exist)
     }
     else return res.status(404).json({
         msg: "País no encontrado"

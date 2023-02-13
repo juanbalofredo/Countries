@@ -10,7 +10,7 @@ export default function SearchBar() {
 
   function handleSubmit(evento){
     evento.preventDefault();
-    dispatch(searchCountry(inputPais.trimStart().trimEnd()))
+    dispatch(searchCountry(inputPais.trim()))
     dispatch(loadingState(true))
   }
 

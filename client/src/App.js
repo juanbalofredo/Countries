@@ -2,7 +2,7 @@ import { Route } from 'react-router-dom'
 import LandingPage from './components/home/LandingPage';
 import Home from './components/home/Home';
 import NavBar from './components/home/NavBar';
-import CountryDetail from './components/home/CountryDetail';
+import Detalle from './components/home/Detalle';
 import Activity from './components/home/Activity';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <Home />
       </Route>
       <Route path='/country/:idPais' exact>
-        <CountryDetail />
+        <Detalle />
       </Route>
       <Route path="/activity" exact>
         <Activity />

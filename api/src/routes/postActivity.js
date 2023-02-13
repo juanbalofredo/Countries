@@ -46,7 +46,7 @@ route.get('/', async (req, res) => {
 
     if(result){
         for(let i = 0; i < result.length; i++){
-            if(array.indexOf(result[i].name) === -1){ // si no encuentra repetidos no los pushea al array
+            if(array.indexOf(result[i].name) === -1){
                 array.push(result[i].name)
             }
         }
@@ -55,54 +55,5 @@ route.get('/', async (req, res) => {
     res.send(array);
 })
 
-/* route.get('/reloadActivities', async (req, res) => {
-    console.log('Reiniciando actividades');
-    try {
-        await Activity.destroy();
-
-        let datosDefault = fs.readFileSync(__dirname + '/activities.json', 'utf-8')
-
-        const dataActivities = JSON.parse(datosDefault);
-
-        dataActivities.forEach(async ({name, dificultad, duracion, temporada, idPais} = e) =>{
-            try {
-                const act = await Activity.create({
-                    name,
-                    dificultad,
-                    duracion,
-                    temporada
-                })
-                idPais.forEach(async (p) =>{
-                    await act.addCountry(p)
-                })
-            } catch (er) {
-                console.log(er);
-            }
-        })
-
-        console.log('Actividades reiniciadas correctamente!');
-
-        res.status(200).send('Actividades reinicializadas!')
-    } catch (error) {
-        console.log('Error al reiniciar actividades! (descripcion abajo)');
-        console.log(error);
-        res.sendStatus(400)
-    }
-}) */
-
-route.delete('/:name', async (req, res) => {//la he creado porque compartí el enlace de la página en un grupo de whatsapp en el cual uno se hizo el vivo y publicó una actividad que iba a ser de mal gusto, y para evitar hacer muchos deploy directamente borro un registro de actividad por nombre (ya que es único)
-    const { name } = req.params;
-    try {
-        await Activity.destroy({
-            where: {
-                name
-            }
-        })
-        res.status(204).json({res: 'Actividad ´' + name + '´ borrada!'})
-        console.log('Actividad ´' + name + '´ borrada!');
-    } catch (error) {
-        console.log(error);
-    }
-})
 
 module.exports = route;

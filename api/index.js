@@ -3,11 +3,11 @@ const server = require('./src/app.js');
 const { conn, Country } = require('./src/db.js');
 const axios = require('axios')
 
-const loadDB = async () => {
-  console.log("\nCargando datos...")
-  const existe = await Country.count();
-  if(!existe){
-    console.log("si pero no")
+const cargarDB = async () => {
+  console.log("Cargando datos de la API")
+  const exist = await Country.count();
+  if(!exist){
+    console.log("Creando DB nueva")
       axios.get('https://restcountries.com/v3/all')
       .then(respuesta => {
           respuesta.data.forEach(async (e) => {
@@ -27,21 +27,21 @@ const loadDB = async () => {
                   poblacion: e.population
               })
           })
-          console.log("\nTodo correcto pa");
+          console.log("Cargado todo de 0");
       })
       .catch (e => {
           console.log(e);
       })
   }
   else{
-      console.log("\nBase de datos cargada")
+      console.log("Base ya cargada")
   }
 }
 
 // Syncing all the models at once
 conn.sync({ force: false }).then(() => {
   server.listen(3001, () => {
-    console.log('listening at ' + 3001); // eslint-disable-line no-console
-    loadDB()    
+    console.log('Escuchando puerto: ' + 3001); // eslint-disable-line no-console
+    cargarDB()    
   });
 });

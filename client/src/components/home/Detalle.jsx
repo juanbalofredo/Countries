@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { clearDetail } from '../../redux/actions/index'
 
-export default function CountryDetail() {
+export default function Detalle() {
   const pais = useSelector(state => state.countryDetail)
   const dispatch = useDispatch()
 
